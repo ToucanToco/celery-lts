@@ -297,6 +297,7 @@ class Backend(object):
         elif isinstance(exc, BaseException):
             if self.serializer in EXCEPTION_ABLE_CODECS:
                 exc = get_pickled_exception(exc)
+            return exc
         elif not isinstance(exc, dict):
             try:
                 exc = dict(exc)
